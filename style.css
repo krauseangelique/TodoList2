@@ -1,4 +1,7 @@
+ 
+
 body {
-    color: whitesmoke;
+    color: #EADDCA;
+    font-family: roboto-regular;
     background: linear-gradient(to left, rgb(89, 89, 89), #333 50%, #eee 75%, rgb(89, 89, 89) 75%);
 }
