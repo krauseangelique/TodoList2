@@ -5,6 +5,9 @@ body {
     font-family: roboto-regular;
     background: linear-gradient(to left, rgb(89, 89, 89), #333 40%, #eee 75%, rgb(89, 89, 89) 75%);
 }
+ul{
+    color:rgb(227, 170, 86);
+}
 
 li {
     display: flex;

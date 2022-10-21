@@ -25,7 +25,7 @@ const items = JSON.parse(localStorage.getItem("items")) || [];
         e.preventDefault(); // empêche les reloads intempestifs
         const taskItems = addTasks[0].value;
         //(2) Vérifier si on récupère la bonne valeur, c'est à dire la valeur tapée dans l'input
-        console.log(taskItems);
+       // console.log(taskItems);
 
         items.push(taskItems); // On envoi dans notre tableau [] les valeurs enregistrées par l'utilisateur(3)
 
@@ -38,7 +38,7 @@ const items = JSON.parse(localStorage.getItem("items")) || [];
         // localStorage.setItem() permet d'initialiser les items. Elle prend deux paramètres : la clé ('items') et la valeur (JSON.stringify(items)) (II)
         localStorage.setItem("items", JSON.stringify(items));
 
-        console.log(taskItems);
+       // console.log(taskItems);
 
     } // Fin de ma fonction
 
@@ -53,12 +53,23 @@ const items = JSON.parse(localStorage.getItem("items")) || [];
         itemList.innerHTML = items.map((taskItems, index) => {
             // (4) les items renvoyés le sont dans un tableau donc séparés par une virgule pour les séparer de façon différente on passera par join
 
-            return `<li>${index + 1}. ${taskItems} </li>`;
+            return `<li id="todolist">
+            <p>${index + 1}. ${taskItems}</p>
+            <button>Done</button>
+            <button>Delete</button>
+            </li>`;
             // (5) pour renvoyer les infos  et +1 pour avoir le chiffre. avant l'item 
 
         })
         .join(""); // jointure entre les différents 'objets' item
-    }
+
+    } // fin de ma fonction
+
+// Création de l'eventListener qui attend un événement submit (repris dans notre cas-ci via l'input de type submit)
+
+// Appel de la fonction
+addTasks.addEventListener("submit", handleAddItem);
+// l'appel de cette fonction est lié à notre variable possèdant le getItems(). On l'appelle dans notre fonction handleAddItem et on l'appelle de façon classique pour afficher les données enregistrées dans notre localStorage.
 
   
  
