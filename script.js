@@ -65,13 +65,13 @@ const items = JSON.parse(localStorage.getItem("items")) || [];
 
     } // fin de ma fonction
 
-// Création de l'eventListener qui attend un événement submit (repris dans notre cas-ci via l'input de type submit)
+// 3.Création de l'addEventListener qui attend un événement submit (repris dans notre cas-ci via l'input de type submit)
 
 // Appel de la fonction
 addTasks.addEventListener("submit", handleAddItem);
 // l'appel de cette fonction est lié à notre variable possèdant le getItems(). On l'appelle dans notre fonction handleAddItem et on l'appelle de façon classique pour afficher les données enregistrées dans notre localStorage.
 
-  
+  // Je vais placer les événements sur mes bouttons
  
 
 /* METHODOLOGIE
