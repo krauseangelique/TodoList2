@@ -69,11 +69,11 @@ function addItemList(items = [], itemList) {
     itemList.innerHTML = items.map((taskItems, index) => {
         // (4) les items renvoyés le sont dans un tableau donc séparés par une virgule pour les séparer de façon différente on passera par join
 
-        return `<li id="todolist">
-                        <p>${index + 1}. ${taskItems}</p>
-                        <button class="doneButton">Done</button>
-                        <button class="deleteButton">Delete</button>
-                    </li>`;
+        return `<li>
+                    <p>${index + 1}. ${taskItems}</p>
+                    <button class="doneButton">Done</button>
+                    <button class="deleteButton">Delete</button>
+                </li>`;
         // (5) pour renvoyer les infos  et +1 pour avoir le chiffre. avant l'item 
     })
         .join(""); // jointure entre les différents 'objets' item
@@ -89,28 +89,31 @@ addItemList(items, taskList);
 
 // Je vais placer les événements sur mes bouttons
 
+
 /* TRAVAIL SUR LES ÉVÉNEMENTS EN JS
+
 Un événement en JavaScript est représenté par un nom ( click , mousemove ...) et une fonction que l'on nomme une callback . Un événement est par défaut propagé, c'est-à-dire que si nous n'indiquons pas à l'événement que nous le traitons, il sera transmis à l'élément parent, et ainsi de suite jusqu'à l'élément racine.
  L'utilisateur clique avec la souris sur un certain élément ou en place le curseur sur un certain élément.
+
 */
-let btnDelete = document.querySelectorAll('.delete');
+const btnDelete = document.querySelectorAll('.deleteButton');
 
 
 function deleteItem(e) {
     const btnClicked = e.target;
      console.log(btnClicked);
+
     if (btnClicked.classList[0] === "deleteButton") {
     const effacer = btnClicked.parentElement;
      effacer.remove();
     }
-
     else if (btnClicked.classList[0] === "doneButton") {
-        const trash = btnClicked.parentElement.firstElementChild;
-         trash.classList.toggle("doneButtonA");
-         const texte = btnClicked.parentElement;
+        const deleted = btnClicked.parentElement.firstElementChild;
+         deleted.classList.toggle("doneButtonA");
          
         }
 }
+// Appel de la fonction
 taskList.addEventListener('click', deleteItem);
 
 
